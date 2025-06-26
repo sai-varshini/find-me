@@ -1,7 +1,9 @@
 fastapi
 uvicorn[standard]
 gunicorn
+sqlalchemy
+pydantic
 requests
-python-multipart
-pydantic>=2.0
-typing-extensions
+python-dotenv
+passlib[bcrypt]
+jinja2
