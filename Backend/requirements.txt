@@ -1,10 +1,7 @@
 fastapi
-uvicorn
+uvicorn[standard]
 gunicorn
-python-multipart  
-uploads
-sqlalchemy
-databases
 requests
-
-
+python-multipart
+pydantic>=2.0
+typing-extensions
