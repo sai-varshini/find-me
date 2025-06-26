@@ -1,7 +1,10 @@
 fastapi
 uvicorn
 gunicorn
-python-multipart  # if you're handling file uploads
+python-multipart  
+uploads
 sqlalchemy
 databases
+requests
+
 
