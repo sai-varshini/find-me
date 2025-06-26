@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+gunicorn
+python-multipart  # if you're handling file uploads
+sqlalchemy
+databases
+...
