@@ -7,7 +7,7 @@ function Gallery() {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/gallery")
+    axios.get("https://find-me-t594.onrender.com/gallery")
       .then((res) => {
         setImages(res.data.images || []);
       })

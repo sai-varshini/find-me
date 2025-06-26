@@ -18,7 +18,7 @@ const Register = () => {
       formData.append("email", form.email);
       formData.append("password", form.password);
 
-      await axios.post('http://localhost:8000/register', formData);
+      await axios.post('https://find-me-t594.onrender.com/register', formData);
 
       alert('Registration successful! Please log in.');
       navigate('/login');

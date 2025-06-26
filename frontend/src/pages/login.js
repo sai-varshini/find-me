@@ -21,7 +21,7 @@ const Login = () => {
       formData.append('username', username);
       formData.append('password', password);
 
-      await axios.post('http://localhost:8000/login', formData);
+      await axios.post('https://find-me-t594.onrender.com/login', formData);
       localStorage.setItem('user', username);
       alert('Login successful!');
       navigate('/');

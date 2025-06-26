@@ -92,7 +92,7 @@ function ChatbotPage() {
 
     if (origin && destination) {
       try {
-        const res = await axios.get("http://localhost:8000/distance", {
+        const res = await axios.get("https://find-me-t594.onrender.com/distance", {
           params: { origin, destination },
         });
         addMessage("bot", `Distance: ${res.data.distance}, Duration: ${res.data.duration}`);
@@ -107,7 +107,7 @@ function ChatbotPage() {
     }
 
     try {
-      const res = await axios.get("http://localhost:8000/places", {
+      const res = await axios.get("https://find-me-t594.onrender.com/places", {
         params: { lat: coords.lat, lng: coords.lng, query: userInput },
       });
 
@@ -140,7 +140,7 @@ function ChatbotPage() {
     const username = localStorage.getItem("user");
     if (!username) return;
     try {
-      await axios.post("http://localhost:8000/search-history", {
+      await axios.post("https://find-me-t594.onrender.com/search-history", {
         username,
         query,
       });
@@ -153,7 +153,7 @@ function ChatbotPage() {
     const username = localStorage.getItem("user");
     if (!username) return;
     try {
-      const res = await axios.get(`http://localhost:8000/search-history/${username}`);
+      const res = await axios.get(`https://find-me-t594.onrender.com/search-history/${username}`);
       setHistory(res.data);
     } catch (err) {
       console.error("Failed to fetch history", err);

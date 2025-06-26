@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/contact", {
+      const res = await fetch("https://find-me-t594.onrender.com/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
