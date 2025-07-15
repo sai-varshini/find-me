@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ChatBot.css';
-
+import { logChatEvent } from './utils/analytics';
 
 function ChatBot() {
   const [messages, setMessages] = useState([
@@ -8,14 +8,30 @@ function ChatBot() {
   ]);
   const [input, setInput] = useState('');
 
+  // Log 'Chat Started' once when the component mounts
+  useEffect(() => {
+    logChatEvent('Chat Started', 'Bot greeted user');
+  }, []);
+
   const handleSend = () => {
     if (input.trim() === '') return;
-    setMessages([...messages, { from: 'user', text: input }]);
+
+    // Log user message
+    logChatEvent('User Message Sent', input);
+    const userMessage = { from: 'user', text: input };
+    setMessages(prev => [...prev, userMessage]);
+
+    // Clear input
     setInput('');
 
-    // Placeholder response
+    // Simulate bot response after delay
     setTimeout(() => {
-      setMessages(prev => [...prev, { from: 'bot', text: 'Searching for: ' + input }]);
+      const botResponse = { from: 'bot', text: 'Searching for: ' + input };
+
+      // Log bot reply
+      logChatEvent('Bot Responded', botResponse.text);
+
+      setMessages(prev => [...prev, botResponse]);
     }, 500);
   };
 
