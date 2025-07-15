@@ -1,7 +1,10 @@
 fastapi
-uvicorn
+uvicorn[standard]
 gunicorn
-python-multipart  # if you're handling file uploads
 sqlalchemy
-databases
-
+pydantic
+requests
+python-dotenv
+passlib[bcrypt]
+jinja2
+python-multipart
