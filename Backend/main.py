@@ -28,6 +28,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def root():
+    return {"message": "Find Me backend is up and running 🚀"}
+
 
 @app.get("/places")
 def get_places(lat: float, lng: float, query: str = "restaurant", open_now: bool = False):
