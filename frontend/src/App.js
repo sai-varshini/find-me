@@ -8,6 +8,11 @@ import Contact from './pages/contact';
 import Gallery from './pages/gallery';
 import About from './pages/about';
 import { initGA, logPageView } from './utils/analytics';
+import Clarity from "@microsoft/clarity";
+
+const projectId = "tpkubhvytf"
+Clarity.init(projectId);
+
 
 // A wrapper to log page views on route change
 const RouteChangeTracker = () => {
@@ -43,5 +48,3 @@ function App() {
 
 export default App;
 
-const projectId = "tpkubhvytf"
-Clarity.init(projectId);
