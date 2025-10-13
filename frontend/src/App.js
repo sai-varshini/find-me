@@ -9,12 +9,19 @@ import Gallery from './pages/gallery';
 import About from './pages/about';
 import { initGA, logPageView } from './utils/analytics';
 
-// A wrapper to log page views on route change
+// A wrapper to log page views for Google Analytics
 const RouteChangeTracker = () => {
   const location = useLocation();
 
+  // Google Analytics pageview
   useEffect(() => {
     logPageView(location.pathname);
+  }, [location]);
+
+  // Clarity + Hotjar SPA page tracking
+  useEffect(() => {
+    if (window.clarity) window.clarity('set', 'page', location.pathname);
+    if (window.hj) window.hj('stateChange', location.pathname);
   }, [location]);
 
   return null;
@@ -42,4 +49,3 @@ function App() {
 }
 
 export default App;
-
