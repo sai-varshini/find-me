@@ -8,13 +8,9 @@ import Contact from './pages/contact';
 import Gallery from './pages/gallery';
 import About from './pages/about';
 import { initGA, logPageView } from './utils/analytics';
-import Clarity from "@microsoft/clarity";
+import clarity from "@microsoft/clarity"; // ✅ lowercase import is correct
 
-const projectId = "tpkubhvytf"
-Clarity.init(projectId);
-
-
-// A wrapper to log page views on route change
+// 📊 Track route changes for analytics
 const RouteChangeTracker = () => {
   const location = useLocation();
 
@@ -27,7 +23,8 @@ const RouteChangeTracker = () => {
 
 function App() {
   useEffect(() => {
-    initGA();
+    initGA(); // Initialize Google Analytics
+    clarity.init("tpkubhvytf"); // Initialize Microsoft Clarity once on mount
   }, []);
 
   return (
@@ -47,4 +44,3 @@ function App() {
 }
 
 export default App;
-
